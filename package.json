@@ -1,0 +1,22 @@
+{
+  "name": "bdgt",
+  "version": "0.0.0",
+  "description": "A simple budgeting app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/trescenzi/bdgt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trescenzi/bdgt/issues"
+  },
+  "homepage": "https://github.com/trescenzi/bdgt",
+  "dependencies": {
+    "angular": "^1.3.15"
+  }
+}
