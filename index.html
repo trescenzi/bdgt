@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="jquery/dist/jquery.min.js"></script>
+  <script src="angular/angular.min.js"></script>
+  <script src="bdgt.min.js"></script>
+  <script src="lodash/lodash.min.js"></script>
+  <script>
+  </script>
 </head>
-<body>
-<h1> hey </h1>
+<body ng-app="bdgt">
+  <div class="header" ng-controller="BDController as ctrl">
+    <h2>
+      Spendable Today: {{ (income-ctrl.spentThisMonth())/30 | currency}}
+      Left This Month: {{ (income-ctrl.spentThisMonth()) | currency}}
+      Spent: {{ ctrl.spentThisMonth() | currency }}
+    </h2>
+    <div>
+      Income:<input ng-model="income"></input>
+    </div>
+    <div ng-repeat="category in ctrl.categories">
+      Budget for {{category.name}}:<input ng-model="category.budgeted"></input>
+      {{category.budgeted}}
+      <div>
+        Spent in {{category.name}}:<input ng-model="category.spent"></input>
+    </div>
 </body>
 </html>
