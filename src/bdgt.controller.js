@@ -1,17 +1,21 @@
 angular.module('bdgt').controller( 'BDController', (function() {
   function BDController() {
-    console.log('hey', this.categories);
+    this.exampleItems = [
+      { name: 'paycheck', value: 1000 },
+      { name: 'dinner', value: -25 },
+      { name: 'rent', value: -500 }
+    ];
   }
 
   BDController.prototype = {
     constructor: BDController,
-    categories: [ { name: 'bills', budgeted: 0, spent: 0 },
-                        { name: 'food', budgeted: 0, spent: 0 },
-                        { name: 'otherStuff', budgeted: 0, spent: 0 } ],
     spentThisMonth: function() {
      return _.foldl( this.categories, function( sum, category ) {
         return sum + parseFloat(category.spent);
       }, 0);
+    },
+    addItem: function(name, value) {
+      this.exampleItems.push({'name': name, 'value':value});
     }
   }
 

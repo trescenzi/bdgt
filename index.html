@@ -3,26 +3,24 @@
 <head>
   <script src="jquery/dist/jquery.min.js"></script>
   <script src="angular/angular.min.js"></script>
-  <script src="bdgt.min.js"></script>
+  <script src="ng-dialog/js/ngDialog.min.js"></script>
+  <script src="app.js"></script>
   <script src="lodash/lodash.min.js"></script>
-  <script>
-  </script>
+  <script src="lodash/lodash.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="ng-dialog/css/ngDialog.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="styles.css"></link>
 </head>
 <body ng-app="bdgt">
   <div class="header" ng-controller="BDController as ctrl">
     <h2>
-      Spendable Today: {{ (income-ctrl.spentThisMonth())/30 | currency}}
-      Left This Month: {{ (income-ctrl.spentThisMonth()) | currency}}
-      Spent: {{ ctrl.spentThisMonth() | currency }}
+      BDGT
     </h2>
-    <div>
-      Income:<input ng-model="income"></input>
+    <div ng-repeat="item in ctrl.exampleItems">
+      <bdgt-item value="item.value" name="item.name">
     </div>
-    <div ng-repeat="category in ctrl.categories">
-      Budget for {{category.name}}:<input ng-model="category.budgeted"></input>
-      {{category.budgeted}}
-      <div>
-        Spent in {{category.name}}:<input ng-model="category.spent"></input>
-    </div>
+    <form>
+      <input ng-model="name"></input><input ng-model="value"></input>
+      <button ng-click="ctrl.addItem(name,value)">Add new transaction</button>
+    </form>
 </body>
 </html>
