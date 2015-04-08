@@ -1,11 +1,17 @@
-module.controller( 'BDItemController', [ 'ngDialog', function(ngDialog) {
+module.controller( 'BDItemController', [ '$scope', 'ngDialog', function($scope, ngDialog) {
     console.log(ngDialog);
 
-    this.openEdit =  function() {
+    this.openEdit = function() {
       console.log('calling?');
-      ngDialog.open(
-        { template: "Hello World",
-          plain: true
-        });
-    }
+      this.close = ngDialog.open(
+        {template: "bdgt-edit.dialog.tpl.html",
+         scope: $scope,
+         showClose: false }).close;
+    };
+
+    this.editItem = function(newName, newValue) {
+      this.name = newName;
+      this.value = newValue;
+    };
+
 }]);

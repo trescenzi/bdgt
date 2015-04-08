@@ -11,15 +11,16 @@ angular.module('bdgt').directive('bdgtItem', function() {
     link: function(scope, element, attrs, ctrl) {
       ctrl.itemColor = function() {
         if( ctrl.value >= 0 ) {
-          return {'background-color': 'green'}
+          return {'background-color': 'mediumseagreen'}
         }
-        return {'background-color': 'red'}
+        return {'background-color': 'tomato'}
       }
 
       ctrl.editItem = function( newName, newValue, newCategory ) {
-        ctrl.name = newName;
-        ctrl.value = newValue;
+        ctrl.name = newName || ctrl.name;
+        ctrl.value = newValue || ctrl.value;
         ctrl.category = newCategory;
+        ctrl.close();
       }
     }
   }

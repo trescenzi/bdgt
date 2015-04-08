@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="initial-scale=1">
   <script src="jquery/dist/jquery.min.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="angular/angular.min.js"></script>
   <script src="ng-dialog/js/ngDialog.min.js"></script>
   <script src="app.js"></script>
   <script src="lodash/lodash.min.js"></script>
-  <script src="lodash/lodash.min.js"></script>
   <link rel="stylesheet" type="text/css" href="ng-dialog/css/ngDialog.min.css"></link>
+  <link rel="stylesheet" type="text/css" href="ng-dialog/css/ngDialog-theme-default.css"></link>
   <link rel="stylesheet" type="text/css" href="styles.css"></link>
+  <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css"></link>
 </head>
-<body ng-app="bdgt">
-  <div class="header" ng-controller="BDController as ctrl">
-    <h2>
-      BDGT
-    </h2>
-    <div ng-repeat="item in ctrl.exampleItems">
-      <bdgt-item value="item.value" name="item.name">
+<body ng-app="bdgt" ng-controller="BDController as ctrl">
+  <div class="bs-component">
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"> BDGT : {{ ctrl.total() | currency }} </a>
+      </div>
+    </nav>
+  </div>
+  <div class="container">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 col-sx-12">
+        <div ng-repeat="item in ctrl.exampleItems">
+          <bdgt-item value="item.value" name="item.name">
+          <form>
+            <input ng-model="name"></input><input ng-model="value"></input>
+            <button class="btn btn-primary btn-circle" ng-click="ctrl.addItem(name,value)">Add new transaction</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
     </div>
-    <form>
-      <input ng-model="name"></input><input ng-model="value"></input>
-      <button ng-click="ctrl.addItem(name,value)">Add new transaction</button>
-    </form>
+  </div>
 </body>
 </html>

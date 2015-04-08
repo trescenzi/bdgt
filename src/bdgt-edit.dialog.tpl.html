@@ -1,0 +1,10 @@
+<div class="ngdialog-message">
+{{ctrl.name}}:{{ctrl.value}}
+</div>
+<form>
+  New Name:<input ng-model="newName"></input>
+  <div></div>
+  New Value:<input ng-model="newValue"></input>
+  <div></div>
+  <button ng-click="ctrl.editItem(newName, newValue)">Update</button>
+</form>

@@ -1,4 +1,8 @@
-<div class='bdgt-item' ng-style="ctrl.itemColor()">
-  {{ ctrl.name }}: {{ ctrl.value }}  
-  <button ng-click="ctrl.openEdit()">Edit Me</button>
+<div class="bs-component">
+  <div class="panel panel-default" ng-style="ctrl.itemColor()">
+    <span class="item-name">{{ ctrl.name }}: {{ ctrl.value | currency }}</span>
+    <button ng-click="ctrl.openEdit()" type="button" aria-label="Left Align">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    </button>
+  </div>
 </div>

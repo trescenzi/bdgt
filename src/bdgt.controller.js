@@ -10,12 +10,26 @@ angular.module('bdgt').controller( 'BDController', (function() {
   BDController.prototype = {
     constructor: BDController,
     spentThisMonth: function() {
-     return _.foldl( this.categories, function( sum, category ) {
-        return sum + parseFloat(category.spent);
+     return _.foldl( this.exampleItems, function( sum, item ) {
+        if(item.value < 0) {
+          return sum + item.value;
+        }
+        return sum;
       }, 0);
     },
     addItem: function(name, value) {
       this.exampleItems.push({'name': name, 'value':value});
+    },
+    earnedThisMonth: function() {
+     return _.foldl( this.exampleItems, function( sum, item ) {
+        if(item.value > 0) {
+          return sum + item.value;
+        }
+        return sum;
+      }, 0);
+    },
+    total: function() {
+      return this.earnedThisMonth() + this.spentThisMonth();
     }
   }
 
