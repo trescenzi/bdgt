@@ -1,4 +1,4 @@
-module.controller( 'BDItemController', [ '$scope', 'ngDialog', function($scope, ngDialog) {
+angular.module('bdgt').controller( 'BDItemController', [ '$scope', 'ngDialog', function($scope, ngDialog) {
     console.log(ngDialog);
 
     this.openEdit = function() {
