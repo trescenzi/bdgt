@@ -13,7 +13,7 @@
   <link rel="stylesheet" type="text/css" href="styles.css"></link>
   <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css"></link>
 </head>
-<body ng-app="bdgt" ng-controller="BDController as ctrl">
+<body ng-app="bdgt" ng-controller="BDController as ctrl" ng-init="ctrl.getBudgetItems()">
   <div class="bs-component">
     <nav class="navbar navbar-default">
       <div class="navbar-header">
@@ -24,13 +24,13 @@
   <div class="container">
       <div class="col-md-2"></div>
       <div class="col-md-8 col-sx-12">
-        <div ng-repeat="item in ctrl.exampleItems">
+        <div ng-repeat="item in ctrl.data">
           <bdgt-item value="item.value" name="item.name">
-          <form>
-            <input ng-model="name"></input><input ng-model="value"></input>
-            <button class="btn btn-primary btn-circle" ng-click="ctrl.addItem(name,value)">Add new transaction</button>
-          </form>
         </div>
+        <form>
+          <input ng-model="name"></input><input ng-model="value"></input>
+          <button class="btn btn-primary btn-circle" ng-click="ctrl.addItem(name,value)">Add new transaction</button>
+        </form>
       </div>
       <div class="col-md-2"></div>
     </div>
